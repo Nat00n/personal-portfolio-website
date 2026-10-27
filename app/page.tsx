@@ -1,17 +1,25 @@
+import { projects } from "@/data/projects";
+import ProjectCard from "@/components/ProjectCard"
 
+export default function HomePage() {
 
-export default function Home() {
+  const featured = projects.filter((p) => p.featured);
+  
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <div>
-          <h1>Nathan Douglas</h1>
+    <div>
+      <div>
+        <h1>Nathan Douglas</h1>
 
-          <br></br>
+        <br></br>
 
-          <p>Portfolio WIP</p>
-        </div>
-      </main>
+        <p>Portfolio WIP</p>
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-3">
+        {featured.map((p) => (
+          <ProjectCard key={p.base} project={p} />
+        ))}
+      </div>
     </div>
   );
 }
