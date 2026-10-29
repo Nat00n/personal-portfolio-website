@@ -10,7 +10,7 @@ export default function Footer() {
 
           |
 
-          Contact me at <a href="mailto:x@x.com" className="text-blue-400 hover:text-blue-500">x@x.com</a>
+          Contact me at <a href="mailto:Nathan.Douglas04@Outlook.com" className="text-blue-400 hover:text-blue-500">Nathan.Douglas04@Outlook.com</a>
         </p>
       </div>
     </footer>
