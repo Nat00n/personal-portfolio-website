@@ -1,25 +1,24 @@
 import { projects } from "@/data/projects";
-import ProjectCard from "@/components/ProjectCard"
+import ProjectCarousel from "@/components/ProjectCarousel";
 
 export default function HomePage() {
+  const featured = projects
+    .filter((p) => p.featured)
+    .sort((a, b) => b.date.localeCompare(a.date)); // newest first
 
-  const featured = projects.filter((p) => p.featured);
-  
+  const games = featured.filter((p) => p.type === "Game");
+  const software = featured.filter((p) => p.type === "Software");
+
   return (
-    <div>
+    <div className="container mx-auto space-y-12 px-4 py-8">
       <div>
-        <h1>Nathan Douglas</h1>
-
+        <h1 className="heading-display">Nathan Douglas</h1>
         <br></br>
-
-        <p>Portfolio WIP</p>
+        <p className="mt-4 text-muted">Portfolio WIP</p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-3">
-        {featured.map((p) => (
-          <ProjectCard key={p.base} project={p} />
-        ))}
-      </div>
+      <ProjectCarousel title="Games" href="/projects#games" projects={games} />
+      <ProjectCarousel title="Software" href="/projects#software" projects={software} />
     </div>
   );
 }
