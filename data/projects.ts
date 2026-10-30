@@ -1,9 +1,9 @@
 // ? depicts optional fields
 
-export type ProjectType = "Game" | "Software";
+export type ProjectType = "Game" | "Software" | "Asset";
 
 export type Project = {
-    base : string;
+    base : string; // needs to have no spaces, as it is used in the URL
     title: string;
     summary: string;
     description: string;
@@ -11,8 +11,8 @@ export type Project = {
     image?: string;
     links: {label : string, url : string}[];
     featured?: boolean;
-    date: string;
-    type: ProjectType;
+    date: string; // ISO, yyyy-mm-dd
+    type: ProjectType; // Types above
 
 };
 
@@ -115,7 +115,7 @@ export const projects : Project[] = [
         ],
         featured: true,
         date: "2026-01-01",
-        type: "Software",
+        type: "Asset",
     },
 
 ]

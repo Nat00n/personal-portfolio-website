@@ -5,6 +5,7 @@ import { projects, type ProjectType } from "@/data/projects";
 const categories: { id: string; title: string; type: ProjectType }[] = [
   { id: "games", title: "Games", type: "Game" },
   { id: "software", title: "Software", type: "Software" },
+  { id: "assets", title: "Assets", type: "Asset" },
 ];
 
 export default function ProjectGallery() {

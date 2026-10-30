@@ -8,6 +8,7 @@ export default function HomePage() {
 
   const games = featured.filter((p) => p.type === "Game");
   const software = featured.filter((p) => p.type === "Software");
+  const assets = featured.filter((p) => p.type === "Asset");
 
   return (
     <div className="container mx-auto space-y-12 px-4 py-8">
@@ -19,6 +20,7 @@ export default function HomePage() {
 
       <ProjectCarousel title="Games" href="/projects#games" projects={games} />
       <ProjectCarousel title="Software" href="/projects#software" projects={software} />
+      <ProjectCarousel title="Assets" href="/projects#assets" projects={assets} />
     </div>
   );
 }
