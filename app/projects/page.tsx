@@ -2,13 +2,21 @@ import ProjectCard from "@/components/ProjectCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { projects, type ProjectType } from "@/data/projects";
 
+export const instant = false;
+
 const categories: { id: string; title: string; type: ProjectType }[] = [
   { id: "games", title: "Games", type: "Game" },
   { id: "software", title: "Software", type: "Software" },
   { id: "assets", title: "Assets", type: "Asset" },
 ];
 
-export default function ProjectGallery() {
+export default async function ProjectGallery({
+  searchParams,
+}: {
+  searchParams: Promise<{ type?: string }>;
+}) {
+  const { type } = await searchParams;
+
   const sorted = [...projects].sort((a, b) => b.date.localeCompare(a.date));
   const sections = categories
     .map((c) => ({ ...c, items: sorted.filter((p) => p.type === c.type) }))
@@ -16,11 +24,13 @@ export default function ProjectGallery() {
 
   if (sections.length === 0) return null;
 
+  const active = sections.some((s) => s.id === type) ? type! : sections[0].id;
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="heading-1 mb-8 text-center">The Project Gallery</h1>
 
-      <Tabs defaultValue={sections[0].id}>
+      <Tabs key={active} defaultValue={active}>
         <TabsList className="mx-auto mb-8 w-full max-w-md">
           {sections.map((s) => (
             <TabsTrigger key={s.id} value={s.id} className="flex-1">

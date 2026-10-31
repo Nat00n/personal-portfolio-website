@@ -18,9 +18,9 @@ export default function HomePage() {
         <p className="mt-4 text-muted">Portfolio WIP</p>
       </div>
 
-      <ProjectCarousel title="Games" href="/projects#games" projects={games} />
-      <ProjectCarousel title="Software" href="/projects#software" projects={software} />
-      <ProjectCarousel title="Assets" href="/projects#assets" projects={assets} />
+      <ProjectCarousel title="Games" href="/projects?type=games" projects={games} />
+      <ProjectCarousel title="Software" href="/projects?type=software" projects={software} />
+      <ProjectCarousel title="Assets" href="/projects?type=assets" projects={assets} />
     </div>
   );
 }
