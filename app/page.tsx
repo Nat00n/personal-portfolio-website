@@ -12,8 +12,8 @@ export default function HomePage() {
 
   return (
     <div className="container mx-auto space-y-12 px-4 py-8">
-      <div>
-        <h1 className="heading-display">Nathan Douglas</h1>
+      <div className="flex-col justify-items-center">
+        <h1 className="heading-display"><b>Projects Portfolio</b></h1>
         <br></br>
         <p className="mt-4 text-muted">Portfolio WIP</p>
       </div>

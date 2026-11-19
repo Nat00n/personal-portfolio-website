@@ -27,20 +27,23 @@ export default function ProjectCarousel({ title, href, projects }: Props) {
         </CustomLink>
       </div>
 
-      <div className="sm:px-12">
+      <div className="md:px-12">
         <Carousel opts={{ align: "start" }} className="w-full">
           <CarouselContent>
             {projects.map((p) => (
               <CarouselItem
                 key={p.base}
-                className="basis-[85%] sm:basis-1/2 lg:basis-1/3"
+                className="basis-full md:basis-1/2 lg:basis-1/3"
               >
                 <ProjectCard project={p} />
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden sm:inline-flex" />
-          <CarouselNext className="hidden sm:inline-flex" />
+
+          <div className="mt-4 flex justify-center gap-5 md:mt-0 md:contents">
+            <CarouselPrevious className="static translate-y-0 md:absolute" />
+            <CarouselNext className="static translate-y-0 md:absolute" />
+          </div>
         </Carousel>
       </div>
     </section>

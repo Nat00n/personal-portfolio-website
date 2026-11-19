@@ -1,6 +1,3 @@
-// Email will be updated when i get a professional one setup instead of my personal one.
-
-
 export default function Footer() {
   return (
     <footer className="border-t border-neutral-200 dark:border-neutral-800">
