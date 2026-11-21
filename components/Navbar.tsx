@@ -11,10 +11,10 @@ export default function Navbar() {
 
         <Breadcrumbs />
 
-        <CustomLink href="\nathan-douglas-cv.pdf" newTab className="external-link">
+        <CustomLink href="\nathan-douglas-cv.pdf" newTab className="text-primary! hover:text-secondary-foreground! link-external">
           View My CV
         </CustomLink>
       </div>
-    </nav>
+    </nav> 
   );
 }

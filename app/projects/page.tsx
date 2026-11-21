@@ -33,7 +33,7 @@ export default async function ProjectGallery({
       <Tabs key={active} defaultValue={active}>
         <TabsList className="mx-auto mb-8 w-full max-w-md">
           {sections.map((s) => (
-            <TabsTrigger key={s.id} value={s.id} className="flex-1">
+            <TabsTrigger key={s.id} value={s.id} className="flex-1 transition-colors text-foreground hover:text-background data-active:bg-foreground data-active:text-primary data-active:hover:bg-background data-active:hover:text-primary">
               {s.title}
             </TabsTrigger>
           ))}

@@ -41,8 +41,8 @@ export default function ProjectCarousel({ title, href, projects }: Props) {
           </CarouselContent>
 
           <div className="mt-4 flex justify-center gap-5 md:mt-0 md:contents">
-            <CarouselPrevious className="static translate-y-0 md:absolute" />
-            <CarouselNext className="static translate-y-0 md:absolute" />
+            <CarouselPrevious className="static bg-muted hover:bg-secondary-foreground translate-y-0 md:absolute" />
+            <CarouselNext className="static bg-muted hover:bg-secondary-foreground translate-y-0 md:absolute" />
           </div>
         </Carousel>
       </div>

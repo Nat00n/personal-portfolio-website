@@ -63,9 +63,9 @@ export default function Breadcrumbs() {
 
               <BreadcrumbItem>
                 {isLast ? (
-                  <BreadcrumbPage>{crumb.label}</BreadcrumbPage>
+                  <BreadcrumbPage className="text-primary">{crumb.label}</BreadcrumbPage>
                 ) : (
-                  <BreadcrumbLink render={<Link href={crumb.href}>{crumb.label}</Link>} />
+                  <BreadcrumbLink className="text-secondary hover:text-secondary-foreground" render={<Link href={crumb.href}>{crumb.label}</Link>} />
                 )}
               </BreadcrumbItem>
 

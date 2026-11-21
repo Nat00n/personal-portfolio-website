@@ -6,40 +6,19 @@
 
 /* Raw values: these change between light and dark */
 :root {
-  --muted: oklch(0.97 0 0);
-  --surface: #f5f5f5;
-  --border: oklch(0.922 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-hover: #3730a3;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --muted: #596070;
+  --accent: #8d697a;
+  --accent-hover: #544e68;
+  --background: #1f1f29;
+  --foreground: #413a42;
+  --primary: #eaf0d8;
+  --primary-foreground: #ffd4a3;
+  --secondary: #96a2b3;
+  --secondary-foreground: #d08159;
   --muted-foreground: oklch(0.556 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -116,11 +95,11 @@
 }
 
 .link-internal {
-  @apply text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent;
+  @apply text-muted underline decoration-muted underline-offset-4 transition-colors hover:text-secondary-foreground hover:decoration-secondary-foreground;
 }
 
 .link-external {
-  @apply text-accent underline underline-offset-4 transition-colors hover:text-accent-hover;
+  @apply text-muted underline decoration-muted underline-offset-4 transition-colors hover:text-secondary-foreground hover:decoration-secondary-foreground;
 }
 
 .link-external::after {
@@ -171,10 +150,36 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-primary;
   }
   html {
     @apply font-sans;
+  }
+
+  .stable-scrollbar {
+    /* Reserves space for the scrollbar, preventing layout shift */
+    scrollbar-gutter: stable;
+    /* Optional: Style the scrollbar for Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+  }
+  
+  /* Style for WebKit browsers (Chrome, Safari, Edge) */
+  .stable-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .stable-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .stable-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .stable-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 }
 
