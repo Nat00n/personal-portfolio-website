@@ -7,7 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import type { Project } from "@/data/projects";
+import type { Project } from "@/lib/projects";
 
 type Props = {
   title: string;
@@ -41,8 +41,8 @@ export default function ProjectCarousel({ title, href, projects }: Props) {
           </CarouselContent>
 
           <div className="mt-4 flex justify-center gap-5 md:mt-0 md:contents">
-            <CarouselPrevious className="static bg-muted hover:bg-secondary-foreground translate-y-0 md:absolute" />
-            <CarouselNext className="static bg-muted hover:bg-secondary-foreground translate-y-0 md:absolute" />
+            <CarouselPrevious className="static bg-muted hover:bg-primary-foreground translate-y-0 md:absolute" />
+            <CarouselNext className="static bg-muted hover:bg-primary-foreground translate-y-0 md:absolute" />
           </div>
         </Carousel>
       </div>

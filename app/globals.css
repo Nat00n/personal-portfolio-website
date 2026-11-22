@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -95,7 +96,7 @@
 }
 
 .link-internal {
-  @apply text-muted underline decoration-muted underline-offset-4 transition-colors hover:text-secondary-foreground hover:decoration-secondary-foreground;
+  @apply text-muted underline decoration-muted underline-offset-4 transition-colors hover:text-primary-foreground hover:decoration-primary-foreground;
 }
 
 .link-external {
@@ -185,4 +186,77 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+.project-body {
+  @apply text-left;
+}
+
+.project-body h2 {
+  @apply text-secondary-foreground text-center font-heading text-h2 font-semibold mt-10 mb-3;
+}
+
+.project-body h3 {
+  @apply text-primary-foreground text-center font-heading text-h3 font-semibold mt-8 mb-2;
+}
+
+.project-body p {
+  @apply text-primary text-body;
+}
+
+.project-body blockquote {
+  @apply border-l-4 border-accent pl-4 italic;
+}
+
+.project-body ul {
+  @apply list-disc pl-6 items-center text-primary;
+}
+
+.project-body li::marker {
+  @apply text-primary-foreground;
+}
+
+.project-body table {
+  @apply w-full text-small;
+}
+.project-body th {
+  @apply border-b border-border bg-surface px-3 py-2 text-left;
+}
+.project-body td {
+  @apply border-b border-border px-3 py-2;
+}
+
+.project-body img,
+.project-body video {
+  @apply mx-auto h-auto max-h-32 w-auto max-w-full rounded-lg;
+}
+
+/* inline code */
+.project-body :not(pre) > code {
+  @apply rounded bg-surface px-1.5 py-0.5 text-secondary-foreground;
+}
+
+/* removes the backticks the typography plugin adds around inline code */
+.project-body :not(pre) > code::before,
+.project-body :not(pre) > code::after {
+  content: none;
+}
+
+/* code blocks */
+.project-body pre {
+  @apply text-center rounded-lg border border-border bg-surface;
+}
+
+.project-body pre code {
+  @apply text-primary text-center ;
+}
+
+.project-body blockquote {
+  @apply border-l-4 border-secondary-foreground pl-4 font-normal md:-ml-5;
+}
+
+/* removes the curly quote marks the plugin adds */
+.project-body blockquote p::before,
+.project-body blockquote p::after {
+  content: none;
 }

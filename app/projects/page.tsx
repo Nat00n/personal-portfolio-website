@@ -1,6 +1,6 @@
 import ProjectCard from "@/components/ProjectCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { projects, type ProjectType } from "@/data/projects";
+import { getProjects, type ProjectType } from "@/lib/projects";
 
 export const instant = false;
 
@@ -15,6 +15,7 @@ export default async function ProjectGallery({
 }: {
   searchParams: Promise<{ type?: string }>;
 }) {
+  const projects = getProjects();
   const { type } = await searchParams;
 
   const sorted = [...projects].sort((a, b) => b.date.localeCompare(a.date));

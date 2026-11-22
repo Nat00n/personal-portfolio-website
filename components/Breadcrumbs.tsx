@@ -3,7 +3,6 @@
 import { Fragment } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { projects } from "@/data/projects";
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -24,16 +23,14 @@ import {
 
 type Crumb = { label: string; href: string };
 
-// Turns a URL segment into display text
-function labelFor(segment: string): string {
-  const project = projects.find((p) => p.base === segment);
-  if (project) return project.title;
+function labelFor(segment: string, titles: Record<string, string>): string {
+  if (titles[segment]) return titles[segment];
 
   const text = decodeURIComponent(segment).replace(/-/g, " ");
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
-export default function Breadcrumbs() {
+export default function Breadcrumbs({ titles }: { titles: Record<string, string> }) {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const segments = pathname.split("/").filter(Boolean);
@@ -41,7 +38,7 @@ export default function Breadcrumbs() {
   const crumbs: Crumb[] = [
     { label: "Home", href: "/" },
     ...segments.map((segment, i) => ({
-      label: labelFor(segment),
+      label: labelFor(segment, titles),
       href: "/" + segments.slice(0, i + 1).join("/"),
     })),
   ];

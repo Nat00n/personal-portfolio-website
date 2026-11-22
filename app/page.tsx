@@ -1,11 +1,12 @@
-import { projects } from "@/data/projects";
+import { getProjects } from "@/lib/projects";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import Image from 'next/image'
 
 export default function HomePage() {
+  const projects = getProjects();
   const featured = projects
     .filter((p) => p.featured)
-    .sort((a, b) => b.date.localeCompare(a.date)); // newest first
+    .sort((a, b) => b.date.localeCompare(a.date));
 
   const games = featured.filter((p) => p.type === "Game");
   const software = featured.filter((p) => p.type === "Software");
