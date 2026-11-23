@@ -228,7 +228,7 @@ html {
 
 .project-body img,
 .project-body video {
-  @apply mx-auto h-auto max-h-32 w-auto max-w-full rounded-lg;
+  @apply mx-auto h-auto max-h-64 w-auto max-w-full rounded-lg;
 }
 
 /* inline code */
@@ -255,7 +255,7 @@ html {
   @apply border-l-4 border-secondary-foreground pl-4 font-normal md:-ml-5;
 }
 
-/* removes the curly quote marks the plugin adds */
+/* removes the quote marks on quotes */
 .project-body blockquote p::before,
 .project-body blockquote p::after {
   content: none;

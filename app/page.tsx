@@ -1,6 +1,8 @@
 import { getProjects } from "@/lib/projects";
 import ProjectCarousel from "@/components/ProjectCarousel";
 import Image from 'next/image'
+import SectionCard from "@/components/SectionCard"
+import ProjectLinkButton from "@/components/ProjectLinkButton"
 
 export default function HomePage() {
   const projects = getProjects();
@@ -14,33 +16,67 @@ export default function HomePage() {
 
   return (
     <div className="container mx-auto space-y-12 px-4 py-8">
-      <div className="flex-col justify-items-center">
-        <h1><b>Projects Portfolio</b></h1>
+      <div className="flex-col justify-items-center text-center">
+        <h1 className="text-[24px] text-secondary-foreground"><b>Portfolio</b></h1>
+        <p className="mt-4 text-muted">My experience through education, personal projects and events</p>
         <br></br>
-        <p className="mt-4 text-muted">Portfolio WIP</p>
-        <br></br>
-        <div className="justify-items-center rounded drop-shadow bg-foreground p-4">
-          <h1><b>Education</b></h1>
-          <br></br>
-          <div className="flex flex-col items-center gap-6 md:flex-row md:gap-8">
-            <div>
-              <Image
-                src="/images/university-of-aberdeen-logo.webp" // Path relative to the public folder
-                alt="Aberdeen University Logo"
-                width={200}
-                height={100}
-                className="shrink-0"
-              />
+
+        {/* ---------- About Me Section ---------- */}
+        <div className="space-y-6">
+          <SectionCard
+            title="About Me"
+            media={<Image
+              src="/images/profile.webp"
+              alt="Photo of Nathan"
+              width={200}
+              height={100}
+              className="rounded-lg"
+              />}
+          >
+            <p>I am a junior <b>Game</b> and <b>Software Developer</b>.</p>
+            <p>Im looking to expand my experience and take on junior job roles.</p>
+            <p>I spend my free time developing systems for games and software projects, these can be viewed on this page below or at these links :</p>
+            
+            <div className="flex justify-center gap-4">
+              <ProjectLinkButton label={"Itch.io"} url={"https://nat00n.itch.io/"} />
+              <ProjectLinkButton label={"GitHub"} url={"https://github.com/Nat00n"} />
             </div>
-            <div className="hidden w-px self-stretch bg-gray-100 md:block" />
-            <div className="flex-1 text-center">
-              <p>I graduated from <b>Aberdeen University</b> with a <b>2:1</b> degree for Computing Science in June 2026.</p>
-              <p>During my time studying I explored Software Engineering, Data Analysis and Engineering, Security, Robotics as well as Machine Learning, among some others.</p>
-            </div>
-          </div>
+
+          </SectionCard>
+
+          <SectionCard
+            title="Skills & Experience"
+            mediaSide="right"
+            media={<Image 
+              src="/images/skills.webp"
+              alt="Skills Photo?"
+              width={200}
+              height={100}
+              className="rounded-lg"
+              />}
+          >
+            <p>Your skills text here.</p>
+          </SectionCard>
+
+          <SectionCard
+            title="Education"
+            media={<Image
+              src="/images/UOA-logo-png-cropped.png"
+              alt="University of Aberdeen logo"
+              width={200}
+              height={100}
+              className="rounded-lg"
+              />}
+          >
+            <p>I graduated from <b>Aberdeen University</b> with a <b>2:1</b> degree in Computing Science in June 2026.</p>
+            <p>During my studies I explored Software Engineering, Data Analysis and Engineering, Security, Robotics and Machine Learning, among others.</p>
+          </SectionCard>
         </div>
+
       </div>
 
+
+      <h1 className="text-center text-[24px] text-secondary-foreground"><b>Projects</b></h1>
       <ProjectCarousel title="Games" href="/projects?type=games" projects={games} />
       <ProjectCarousel title="Software" href="/projects?type=software" projects={software} />
       <ProjectCarousel title="Assets" href="/projects?type=assets" projects={assets} />

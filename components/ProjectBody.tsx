@@ -36,10 +36,10 @@ export default function ProjectBody({
             const url = resolve(src);
 
             if (/\.(mp4|webm)$/i.test(url)) {
-              return <video src={url} controls muted playsInline className="rounded-lg" />;
+              return <video src={url} controls muted playsInline className="rounded-lg h-64" />;
             }
             // eslint-disable-next-line @next/next/no-img-element
-            return <img src={url} alt={alt ?? ""} loading="lazy" className="rounded-lg" />;
+            return <img src={url} alt={alt ?? ""} loading="lazy" className="rounded-lg h-64" />;
           },
         }}
       >
