@@ -3,6 +3,7 @@ import ProjectCarousel from "@/components/ProjectCarousel";
 import Image from 'next/image'
 import SectionCard from "@/components/SectionCard"
 import ProjectLinkButton from "@/components/ProjectLinkButton"
+import CustomLink from "@/components/CustomLink";
 
 export default function HomePage() {
   const projects = getProjects();
@@ -40,6 +41,9 @@ export default function HomePage() {
             <div className="flex justify-center gap-4">
               <ProjectLinkButton label={"Itch.io"} url={"https://nat00n.itch.io/"} />
               <ProjectLinkButton label={"GitHub"} url={"https://github.com/Nat00n"} />
+              <CustomLink href="/projects">
+                Project Gallery
+              </CustomLink>
             </div>
 
           </SectionCard>
@@ -76,7 +80,7 @@ export default function HomePage() {
       </div>
 
 
-      <h1 className="text-center text-[24px] text-secondary-foreground"><b>Projects</b></h1>
+      <h1 className="text-center text-[24px] text-secondary-foreground pb-0"><b>Projects</b></h1>
       <ProjectCarousel title="Games" href="/projects?type=games" projects={games} />
       <ProjectCarousel title="Software" href="/projects?type=software" projects={software} />
       <ProjectCarousel title="Assets" href="/projects?type=assets" projects={assets} />
