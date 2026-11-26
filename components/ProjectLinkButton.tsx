@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { LuExternalLink } from "react-icons/lu";
-import { SiGithub, SiItchdotio, SiYoutube } from "react-icons/si";
+import { SiGithub, SiItchdotio, SiYoutube} from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
 import CustomLink from "@/components/CustomLink";
 
 const iconClass = "size-5";
@@ -11,6 +12,7 @@ const icons: Record<string, ReactNode> = {
   "itch.io": <SiItchdotio aria-hidden className={iconClass} />,
   "youtube.com": <SiYoutube aria-hidden className={iconClass} />,
   "youtu.be": <SiYoutube aria-hidden className={iconClass} />,
+  "linkedin.com": <FaLinkedin aria-hidden className={iconClass}/>,
 };
 
 function iconFor(url: string): ReactNode {

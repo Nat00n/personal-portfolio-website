@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 type Props = {
   title: string;
-  media: ReactNode;
+  media?: ReactNode;
   children: ReactNode;
   mediaSide?: "left" | "right";
 };
@@ -24,8 +24,12 @@ export default function SectionCard({
           mediaSide === "right" ? "md:flex-row-reverse" : "md:flex-row"
         }`}
       >
-        <div className="shrink-0">{media}</div>
-        <div className="h-px w-full bg-gray-100 md:h-auto md:w-px md:self-stretch" />
+        {media && (
+          <>
+            <div className="shrink-0">{media}</div>
+            <div className="h-px w-full bg-gray-100 md:h-auto md:w-px md:self-stretch" />
+          </>
+        )}
         <div className="flex-1 space-y-3 text-center">{children}</div>
       </div>
     </section>

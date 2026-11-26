@@ -35,45 +35,71 @@ export default function HomePage() {
               />}
           >
             <p>I am a junior <b>Game</b> and <b>Software Developer</b>.</p>
-            <p>Im looking to expand my experience and take on junior job roles.</p>
-            <p>I spend my free time developing systems for games and software projects, these can be viewed on this page below or at these links :</p>
+            <p>I spend my free time developing systems for games and software projects, these can be viewed below or at these links :</p>
             
             <div className="flex justify-center gap-4">
-              <ProjectLinkButton label={"Itch.io"} url={"https://nat00n.itch.io/"} />
-              <ProjectLinkButton label={"GitHub"} url={"https://github.com/Nat00n"} />
               <CustomLink href="/projects">
                 Project Gallery
               </CustomLink>
+              <ProjectLinkButton label={"Itch.io"} url={"https://nat00n.itch.io/"} />
+              <ProjectLinkButton label={"GitHub"} url={"https://github.com/Nat00n"} />
+              <ProjectLinkButton label={"LinkedIn"} url={"https://uk.linkedin.com/in/nathan-doug"} />
             </div>
 
+            <p>I&apos;m looking to expand my experience and take on junior job roles.</p>
+            <p>Currently I am open to work, remote or anywhere in the Aberdeenshire area.</p>
+            <p>You can contact me at : <CustomLink href="mailto:Nathan.Douglas04@Outlook.com">Nathan.Douglas04@Outlook.com</CustomLink></p>
           </SectionCard>
 
           <SectionCard
             title="Skills & Experience"
-            mediaSide="right"
-            media={<Image 
-              src="/images/skills.webp"
-              alt="Skills Photo?"
-              width={200}
-              height={100}
-              className="rounded-lg"
-              />}
           >
-            <p>Your skills text here.</p>
+            <p>Areas and languages that I have experience in :</p>
+            <ul className="mx-auto w-fit list-disc pl-5 text-left">
+              <li><b>Languages</b>: GDScript, GLSL, Python, C++, TypeScript, JavaScript, HTML, CSS, SQL</li>
+              <li><b>Game development</b>: Godot engine, solo and team projects, shaders (GLSL)</li>
+              <li><b>Web</b>: Next.js, React, HTML, CSS, Tailwind</li>
+              <li><b>Assets</b>: Blender, BlockBench, Aseprite</li>
+              <li><b>Practices</b>: OOP, composition, UI/UX design, agile, git</li>
+            </ul>
+
+            <p>Events and projects that I have experience from :</p>
+            <ul className="mx-auto w-fit list-disc pl-5 text-left">
+              <li><b>Dissertation</b>: Game-Based Learning For Algorithms: A Browser-Based Educational Tool 
+                (<CustomLink href="/projects/tasktrain">
+                Task Train
+                </CustomLink>)
+              </li>
+              <li><b>Personal Projects</b>: Marching cubes mesh generation algorithm</li>
+              <li><b>Game Jams</b>: Brackeys Game Jam 2026.2, Do You WANNA Jam?! 2026, Club Club Jam Jam 2026,<br></br>
+                  Gwueble Jam 2026, UoA 2026 Game Jam, UoA 2025 Game Jam, UoA 2024 Game Jam</li>
+              <li><b>Hackathons</b>: UoA Texas Hold Em Hackathon 2025</li>
+            </ul>
           </SectionCard>
 
           <SectionCard
             title="Education"
+            mediaSide={"right"}
             media={<Image
               src="/images/UOA-logo-png-cropped.png"
               alt="University of Aberdeen logo"
-              width={200}
-              height={100}
+              width={300}
+              height={200}
               className="rounded-lg"
               />}
           >
-            <p>I graduated from <b>Aberdeen University</b> with a <b>2:1</b> degree in Computing Science in June 2026.</p>
-            <p>During my studies I explored Software Engineering, Data Analysis and Engineering, Security, Robotics and Machine Learning, among others.</p>
+            <p><b>2:1 BSc Hons Computing Science - June 2026</b></p>
+            <br></br>
+            <p>I graduated from <b>Aberdeen University</b> after 4 years of study.</p>
+            <p>During this time I explored:</p>
+            <ul className="mx-auto w-fit list-disc pl-5 text-left">
+              <li>Software Development and Engineering</li>
+              <li>Data Analysis and Engineering</li>
+              <li>Security</li>
+              <li>Robotics</li>
+              <li>Machine Learning</li>
+              <li>and many more</li>
+            </ul>
           </SectionCard>
         </div>
 
