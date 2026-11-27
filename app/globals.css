@@ -1,20 +1,29 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
 
 /* Raw values: these change between light and dark */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --muted: #6b7280;
-  --surface: #f5f5f5;
-  --border: #e5e5e5;
-  --accent: #4f46e5;
-  --accent-hover: #3730a3;
+  --muted: #596070;
+  --accent: #8d697a;
+  --accent-hover: #544e68;
+  --background: #1f1f29;
+  --foreground: #413a42;
+  --primary: #eaf0d8;
+  --primary-foreground: #ffd4a3;
+  --secondary: #96a2b3;
+  --secondary-foreground: #d08159;
+  --muted-foreground: oklch(0.556 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --radius: 0.625rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
     --muted: #9ca3af;
     --surface: #171717;
     --border: #262626;
@@ -33,8 +42,41 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
 
-  --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-heading: var(--font-grotesk), system-ui, sans-serif;
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 /* Text scale: each gives you a text-* utility with its line height */
@@ -53,18 +95,12 @@
   --text-small--line-height: 1.5;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .link-internal {
-  @apply text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent;
+  @apply text-muted underline decoration-muted underline-offset-4 transition-colors hover:text-primary-foreground hover:decoration-primary-foreground;
 }
 
 .link-external {
-  @apply text-accent underline underline-offset-4 transition-colors hover:text-accent-hover;
+  @apply text-muted underline decoration-muted underline-offset-4 transition-colors hover:text-secondary-foreground hover:decoration-secondary-foreground;
 }
 
 .link-external::after {
@@ -74,4 +110,153 @@ body {
 
 .link-external:hover::after {
   @apply -translate-y-0.5 translate-x-0.5;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-primary;
+  }
+  html {
+    @apply font-sans;
+  }
+
+  .stable-scrollbar {
+    /* Reserves space for the scrollbar, preventing layout shift */
+    scrollbar-gutter: stable;
+    /* Optional: Style the scrollbar for Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+  }
+  
+  /* Style for WebKit browsers (Chrome, Safari, Edge) */
+  .stable-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .stable-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .stable-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .stable-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.project-body {
+  @apply text-left;
+}
+
+.project-body h2 {
+  @apply text-secondary-foreground text-center font-heading text-h2 font-semibold mt-10 mb-3;
+}
+
+.project-body h3 {
+  @apply text-primary-foreground text-center font-heading text-h3 font-semibold mt-8 mb-2;
+}
+
+.project-body p {
+  @apply text-primary text-body;
+}
+
+.project-body blockquote {
+  @apply border-l-4 border-accent pl-4 italic;
+}
+
+.project-body ul {
+  @apply list-disc pl-6 items-center text-primary;
+}
+
+.project-body li::marker {
+  @apply text-primary-foreground;
+}
+
+.project-body table {
+  @apply w-full text-small;
+}
+.project-body th {
+  @apply border-b border-border bg-surface px-3 py-2 text-left;
+}
+.project-body td {
+  @apply border-b border-border px-3 py-2;
+}
+
+.project-body img,
+.project-body video {
+  @apply mx-auto h-auto max-h-64 w-auto max-w-full rounded-lg;
+}
+
+/* inline code */
+.project-body :not(pre) > code {
+  @apply rounded bg-surface px-1.5 py-0.5 text-secondary-foreground;
+}
+
+/* removes the backticks the typography plugin adds around inline code */
+.project-body :not(pre) > code::before,
+.project-body :not(pre) > code::after {
+  content: none;
+}
+
+/* code blocks */
+.project-body pre {
+  @apply text-center rounded-lg border border-border bg-surface;
+}
+
+.project-body pre code {
+  @apply text-primary text-center ;
+}
+
+.project-body blockquote {
+  @apply border-l-4 border-secondary-foreground pl-4 font-normal md:-ml-5;
+}
+
+/* removes the quote marks on quotes */
+.project-body blockquote p::before,
+.project-body blockquote p::after {
+  content: none;
 }
